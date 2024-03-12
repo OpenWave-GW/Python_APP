@@ -1,0 +1,50 @@
+#######################################################################################
+#Relay test configuration
+#
+#Attention! Please do not modify the parameter name on the left side of the equal sign, 
+#as it will cause the program to work incorrectly.
+#######################################################################################
+
+# Parameters
+test_loops = 10
+debug_lvl = 0
+
+# Power PFR-100M
+serial_number = GER200751
+OCP = 2.2
+OVP = 55
+current = 1.1
+voltage = 5
+
+# Load PEL-3032E
+load_serial_number = GES140272
+nseq_memo = RELAY_TEST
+nseq_loops = 1
+nseq_total_step = 3
+nseq_range = IHVH
+step1_hrs = 0
+step2_hrs = 0
+step3_hrs = 0
+step1_mins = 0
+step2_mins = 0
+step3_mins = 0
+step1_secs = 0
+step2_secs = 2
+step3_secs = 2
+step1_ms = 100
+step2_ms = 0
+step3_ms = 0
+step1_current = 1.2
+step2_current = 0.7
+step3_current = 0.0
+
+# DSO
+to_coil_dso_power_ch = 1
+to_coil_dso_power_volt = 12.0
+current_probe_ch = 1
+probe_attenuation = 5
+vertical_scale = 0.5
+dso_mode = single
+horizontal_scale_single = 0.05
+horizontal_scale_roll = 1
+trigger_level = 0.8
