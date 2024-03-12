@@ -1,0 +1,4 @@
+appid = wx1e02________31
+appsecret = 092ccaf0ae9a__________9d7
+openid = ouUbX6GJIW________________O-4
+template_id = v-2UKG1vnctT3Pj________________7Ym4
