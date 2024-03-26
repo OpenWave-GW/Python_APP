@@ -5,10 +5,12 @@ alt="IMAGE ALT TEXT HERE" width="400" height="220" border="10" /></a>
 
 ## Introduction of MPO-2000
 The MPO series are the first oscilloscopes from GW Instek capable of __executing Python scripts__ directly on the device. Under the control of Python scripts, the MPO can control external USB devices for collaborative testing, enabling the realization of __small-scale automation and semi-automation testing systems__.
-![](/image/automation_test_system2.png)
+<img src="/image/automation_test_system2.png" alt="Image Description" width="500" height="360">
 
 The MPO-2000 series combines multiple measuring instruments into one unit, making it particularly suitable for educational applications. Under the control of Python scripts, it can achieve various functions that were previously impossible with standalone oscilloscopes, such as __plotting BJT I-V characteristic curves__ (The use of __GDP-025__ is required to convert the current value).
-![](/image/automation_test_system1.png)        ![](/image/bjt01.png)        ![](/image/bjt_I_V_curve.png)
+<img src="/image/automation_test_system1.png" alt="Image Description" width="500" height="360">
+<img src="/image/bjt01.png" alt="Image Description" width="400" height="300">
+<img src="/image/bjt_I_V_curve.png" alt="Image Description" width="400" height="240">
 
 We have compiled various __Python modules__ required for writing MPO Python scripts(such as vertical division/positions, horizontal division/positions, trigger modes, Arbitrary Waveform Generators, Digital Multimeters, Programmable DC Power Supplies, and other commonly used control functions)here for user reference and modification as needed.
 
