@@ -5,11 +5,15 @@ alt="IMAGE ALT TEXT HERE" width="400" height="220" border="10" /></a>
 
 ## MPO-2000介紹
 MPO系列是固緯電子第一款可在機器上直接執行Python腳本的示波器。在Python腳本的控制下，MPO可控制外部USB設備進行協同測試，可用來 __實現小型自動化與半自動化測試系統__ 。
+
 <img src="/image/automation_test_system2.png" alt="Image Description" width="500" height="360">
 
 MPO-2000集多種量測儀器於一身，特別適合教學應用。在Python腳本的控制下能做到多種以往示波器單機無法實現的功能，例如 __BJT I-V 特性曲線繪製__ (需要配合使用 __GDP-025__ 以轉換出電流值)。
+
 <img src="/image/automation_test_system1.png" alt="Image Description" width="500" height="360">
+
 <img src="/image/bjt01.png" alt="Image Description" width="400" height="300">
+
 <img src="/image/bjt_I_V_curve.png" alt="Image Description" width="400" height="240">
 
 我們將撰寫MPO Python腳本時所需要的各種 __Python模組__ (如垂直檔位、水平檔位、觸發模式、任意波產生器、數位萬用表、可程式直流電源供應器等常用控制函式)整理在這裡，方便使用者參考，使用者可依需求進行修改。
