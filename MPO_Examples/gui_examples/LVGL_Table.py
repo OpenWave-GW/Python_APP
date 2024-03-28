@@ -1,6 +1,7 @@
 
 import lvgl as lv
 import fb
+import time
 
 if __name__ == '__main__':
 
@@ -84,3 +85,5 @@ if __name__ == '__main__':
     style.set_bg_color(lv.color_hex(0xFFFFFF))
     table.add_style(style, lv.STATE.DEFAULT | lv.PART.ITEMS)
 
+    time.sleep(0.5)
+    

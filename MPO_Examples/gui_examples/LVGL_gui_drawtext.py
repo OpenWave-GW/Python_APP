@@ -1,6 +1,7 @@
 
 import dso_gui
 import dso_colors as color
+import time
 
 if __name__ == '__main__':
     # Initialize the GUI
@@ -13,3 +14,5 @@ if __name__ == '__main__':
     label2 = gui.draw_text(400, 220, "Hello World", color.LTRED, 90, font=font)
     label3 = gui.draw_text(400, 220, "Hello World", color.YELLOW, 180, font=font)
     label4 = gui.draw_text(400, 220, "Hello World", color.LTGREEN, 270, font=font)
+    
+    time.sleep(0.5)

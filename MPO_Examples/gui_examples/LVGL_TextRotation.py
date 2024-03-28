@@ -1,6 +1,7 @@
 
 import lvgl as lv
 import fb
+import time
 
 if __name__ == '__main__':
 
@@ -54,3 +55,5 @@ if __name__ == '__main__':
 
     # Set rotation angle to 90 degree
     label.set_style_transform_angle(900, lv.PART.MAIN)
+    
+    time.sleep(0.5)

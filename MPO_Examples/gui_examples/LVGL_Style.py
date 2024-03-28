@@ -1,6 +1,7 @@
 
 import lvgl as lv
 import fb
+import time
 
 if __name__ == '__main__':
 
@@ -66,6 +67,6 @@ if __name__ == '__main__':
     # Set the text of the label
     label.set_text('Hello World')
 
-
+    time.sleep(0.5)
 
 
