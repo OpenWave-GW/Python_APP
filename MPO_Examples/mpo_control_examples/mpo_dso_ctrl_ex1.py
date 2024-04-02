@@ -1,4 +1,4 @@
-# Name: mpo_ctrl_ex1.py
+# Name: mpo_dso_ctrl_ex1.py
 #
 # Description: This Python example script demonstrates the utilization of the 
 #   "gds_info" module to establish communication with the MPO via internal socket 
