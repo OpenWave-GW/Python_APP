@@ -78,3 +78,5 @@ if __name__ == '__main__':
         time.sleep(2)
         dso.sa.set_spectrum_mode('OFF')
     
+    # Close the socket connection
+    dso.close()
