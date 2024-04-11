@@ -22,7 +22,7 @@ import serial
 if __name__=='__main__':
     ttystr = '/dev/ttyUSB0'  # External USB device location
     try:
-        usb = serial.Serial(ttystr, baudrate=115200, timeout=3)
+        usb = serial.Serial(ttystr, baudrate=9600, timeout=3)
         usb.write('*idn?\n')
         str1 = usb.read(100).decode().split(',')
         print(str1)
