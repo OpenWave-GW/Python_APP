@@ -32,9 +32,9 @@ if __name__ == '__main__':
     dso.trigger.set_level(value=1.0)                 # Set the trigger level to 1V.
     dso.timebase.set_timebase(hdiv=2e-01)            # Set the horizontal scale to 200ms/div.
     dso.timebase.set_hposition(hpos=8e-01)           # Set the horizontal position to 800ms.
+    dso.opc()                                        # opc() is used to ensure that preceding configuration commands have been executed.
+    time.sleep(0.2)                                  # Pre-trigger acquisition time delay for oscilloscope.
 
-    time.sleep(1)
-    
     for i in range(10):
         dso.gonogo.output_on()  # Turn on the output.
         time.sleep(0.1)
