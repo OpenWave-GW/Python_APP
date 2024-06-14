@@ -41,6 +41,10 @@ MPO-2000's five-in-one functionality combined with Python scripts enables variou
    * Measurement of circuit frequency vs. temperature characteristics
    * Measurement applications combined with barcode scanners.
 
+### MPO-2000 Python API
+Users can find the source code for the Python Library that controls various functions of the MPO-2000 under Python_APP/lib in this project.
+[The online documentation for the MPO-2000 Python API is available here](https://python-app.readthedocs.io/en/latest/index.html).
+
 ### Other features
 MPO-2000 also features:
    * Simultaneous display of spectrum analysis for two channels, with simultaneous __spectrogram plot__.

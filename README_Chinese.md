@@ -42,6 +42,10 @@ MPO-2000的多合一功能結合Python腳本，可以實現多種不同的應用
    * 電路的頻率與溫度特性曲線量測
    * 結合條碼掃描器的量測應用
 
+### MPO-2000 Python API
+關於MPO-2000各項功能控制的Python Library，使用者可以在本專案Python_APP/lib下找到其源碼。
+[MPO-2000的Python API線上說明文件在這裡](https://python-app.readthedocs.io/en/latest/index.html)
+
 ### 其他特點
 MPO-2000還具備下面的功能特點，包含:
    * 可同時顯示兩個通道的頻譜分析，並可同時顯示其 __瀑布圖__ 。
