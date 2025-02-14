@@ -49,7 +49,7 @@ Typical usage example:
 """
 from dso_const import *
 
-__VERSION__ = (0, 0, 0)
+__VERSION__ = (0, 1, 0)
 
 _reference_level_units = {
     'percent' :'PERCent',
@@ -170,7 +170,7 @@ class Measure:
         self.max_measurements = 8
         self.dict_measurements = {}
         
-    def _measurement_cmd(self, meas:str, *args):
+    def _measurement_cmd(self, meas:str, *args, precision:str = None):
         """ Send command regarding a given measurement, and get the result
         accordingly.
         
@@ -180,6 +180,9 @@ class Measure:
                         
             args (int): source(s) with respect to a given measurement above.
                         See dso_meas.Measure.supported_sources.
+            
+            precision (str): with 'precise', the measurement, if applicable,
+                             returns with additional precision.
                         
         Raises:
             MeasureError: An error occurred parsing the input argument.
@@ -193,11 +196,15 @@ class Measure:
                 source = source[:2]
                 if all(source) and len(source) == 2:
                     cmd = f':MEASure:SOURce1 {source[0]};:MEASure:SOURce2 {source[1]};:MEASure:{param}?'
+                    if precision == 'precise':
+                        cmd += ' PRECise'
                     cmd += self.terminator
                 else:
                     raise MeasureError(f'Invalid sources : {source}')
             elif source[0]:
                 cmd = f':MEASure:SOURce1 {source[0]};:MEASure:{param}?'
+                if precision == 'precise':
+                    cmd += ' PRECise'
                 cmd += self.terminator
             else:
                 raise MeasureError(f'Invalid sources : {source[0]}')
@@ -211,119 +218,119 @@ class Measure:
         else:
             raise MeasureError(f'Invalid measurement item : {meas}')
             
-    def get_frr(self, *args):
-        return self._measurement_cmd('frr', *args)
+    def get_frr(self, *args, precision:str = None):
+        return self._measurement_cmd('frr', *args, precision = precision)
         
-    def get_frf(self, *args):
-        return self._measurement_cmd('frf', *args)
+    def get_frf(self, *args, precision:str = None):
+        return self._measurement_cmd('frf', *args, precision = precision)
         
-    def get_ffr(self, *args):
-        return self._measurement_cmd('ffr', *args)
+    def get_ffr(self, *args, precision:str = None):
+        return self._measurement_cmd('ffr', *args, precision = precision)
         
-    def get_fff(self, *args):
-        return self._measurement_cmd('fff', *args)
+    def get_fff(self, *args, precision:str = None):
+        return self._measurement_cmd('fff', *args, precision = precision)
         
-    def get_lrr(self, *args):
-        return self._measurement_cmd('lrr', *args)
+    def get_lrr(self, *args, precision:str = None):
+        return self._measurement_cmd('lrr', *args, precision = precision)
         
-    def get_lrf(self, *args):
-        return self._measurement_cmd('lrf', *args)
+    def get_lrf(self, *args, precision:str = None):
+        return self._measurement_cmd('lrf', *args, precision = precision)
         
-    def get_lfr(self, *args):
-        return self._measurement_cmd('lfr', *args)
+    def get_lfr(self, *args, precision:str = None):
+        return self._measurement_cmd('lfr', *args, precision = precision)
         
-    def get_lff(self, *args):
-        return self._measurement_cmd('lff', *args)
+    def get_lff(self, *args, precision:str = None):
+        return self._measurement_cmd('lff', *args, precision = precision)
         
-    def get_phase(self, *args):
-        return self._measurement_cmd('phase', *args)
+    def get_phase(self, *args, precision:str = None):
+        return self._measurement_cmd('phase', *args, precision = precision)
         
-    def get_max(self, *args):
-        return self._measurement_cmd('max', *args)
+    def get_max(self, *args, precision:str = None):
+        return self._measurement_cmd('max', *args, precision = precision)
         
-    def get_min(self, *args):
-        return self._measurement_cmd('min', *args)
+    def get_min(self, *args, precision:str = None):
+        return self._measurement_cmd('min', *args, precision = precision)
         
-    def get_high(self, *args):
-        return self._measurement_cmd('high', *args)
+    def get_high(self, *args, precision:str = None):
+        return self._measurement_cmd('high', *args, precision = precision)
         
-    def get_low(self, *args):
-        return self._measurement_cmd('low', *args)
+    def get_low(self, *args, precision:str = None):
+        return self._measurement_cmd('low', *args, precision = precision)
         
-    def get_amplitude(self, *args):
-        return self._measurement_cmd('amplitude', *args)
+    def get_amplitude(self, *args, precision:str = None):
+        return self._measurement_cmd('amplitude', *args, precision = precision)
         
-    def get_vpp(self, *args):
-        return self._measurement_cmd('vpp', *args)
+    def get_vpp(self, *args, precision:str = None):
+        return self._measurement_cmd('vpp', *args, precision = precision)
         
-    def get_mean(self, *args):
-        return self._measurement_cmd('mean', *args)
+    def get_mean(self, *args, precision:str = None):
+        return self._measurement_cmd('mean', *args, precision = precision)
         
-    def get_rms(self, *args):
-        return self._measurement_cmd('rms', *args)
+    def get_rms(self, *args, precision:str = None):
+        return self._measurement_cmd('rms', *args, precision = precision)
         
-    def get_area(self, *args):
-        return self._measurement_cmd('area', *args)
+    def get_area(self, *args, precision:str = None):
+        return self._measurement_cmd('area', *args, precision = precision)
         
-    def get_cyclemean(self, *args):
-        return self._measurement_cmd('cyclemean', *args)
+    def get_cyclemean(self, *args, precision:str = None):
+        return self._measurement_cmd('cyclemean', *args, precision = precision)
         
-    def get_cyclerms(self, *args):
-        return self._measurement_cmd('cyclerms', *args)
+    def get_cyclerms(self, *args, precision:str = None):
+        return self._measurement_cmd('cyclerms', *args, precision = precision)
         
-    def get_cyclearea(self, *args):
-        return self._measurement_cmd('cyclearea', *args)
+    def get_cyclearea(self, *args, precision:str = None):
+        return self._measurement_cmd('cyclearea', *args, precision = precision)
         
-    def get_frequency(self, *args):
-        return self._measurement_cmd('frequency', *args)
+    def get_frequency(self, *args, precision:str = None):
+        return self._measurement_cmd('frequency', *args, precision = precision)
         
-    def get_period(self, *args):
-        return self._measurement_cmd('period', *args)
+    def get_period(self, *args, precision:str = None):
+        return self._measurement_cmd('period', *args, precision = precision)
         
-    def get_falltime(self, *args):
-        return self._measurement_cmd('falltime', *args)
+    def get_falltime(self, *args, precision:str = None):
+        return self._measurement_cmd('falltime', *args, precision = precision)
         
-    def get_fallovershoot(self, *args):
-        return self._measurement_cmd('fallovershoot', *args)
+    def get_fallovershoot(self, *args, precision:str = None):
+        return self._measurement_cmd('fallovershoot', *args, precision = precision)
         
-    def get_fallpreshoot(self, *args):
-        return self._measurement_cmd('fallpreshoott', *args)
+    def get_fallpreshoot(self, *args, precision:str = None):
+        return self._measurement_cmd('fallpreshoott', *args, precision = precision)
         
-    def get_neg_width(self, *args):
-        return self._measurement_cmd('-width', *args)
+    def get_neg_width(self, *args, precision:str = None):
+        return self._measurement_cmd('-width', *args, precision = precision)
         
-    def get_pos_width(self, *args):
-        return self._measurement_cmd('+width', *args)
+    def get_pos_width(self, *args, precision:str = None):
+        return self._measurement_cmd('+width', *args, precision = precision)
         
-    def get_pos_duty(self, *args):
-        return self._measurement_cmd('+duty', *args)
+    def get_pos_duty(self, *args, precision:str = None):
+        return self._measurement_cmd('+duty', *args, precision = precision)
         
-    def get_risetime(self, *args):
-        return self._measurement_cmd('risetime', *args)
+    def get_risetime(self, *args, precision:str = None):
+        return self._measurement_cmd('risetime', *args, precision = precision)
         
-    def get_riseovershoot(self, *args):
-        return self._measurement_cmd('riseovershoot', *args)
+    def get_riseovershoot(self, *args, precision:str = None):
+        return self._measurement_cmd('riseovershoot', *args, precision = precision)
         
-    def get_risepreshoot(self, *args):
-        return self._measurement_cmd('risepreshoot', *args)        
+    def get_risepreshoot(self, *args, precision:str = None):
+        return self._measurement_cmd('risepreshoot', *args, precision = precision)
         
-    def get_pos_pulse(self, *args):
-        return self._measurement_cmd('+pulse', *args)
+    def get_pos_pulse(self, *args, precision:str = None):
+        return self._measurement_cmd('+pulse', *args, precision = precision)
         
-    def get_neg_pulse(self, *args):
-        return self._measurement_cmd('-pulse', *args)
+    def get_neg_pulse(self, *args, precision:str = None):
+        return self._measurement_cmd('-pulse', *args, precision = precision)
         
-    def get_pos_edge(self, *args):
-        return self._measurement_cmd('+edge', *args)
+    def get_pos_edge(self, *args, precision:str = None):
+        return self._measurement_cmd('+edge', *args, precision = precision)
         
-    def get_neg_edge(self, *args):
-        return self._measurement_cmd('-edge', *args)
+    def get_neg_edge(self, *args, precision:str = None):
+        return self._measurement_cmd('-edge', *args, precision = precision)
         
-    def get_flickindex_percent(self, *args):
-        return self._measurement_cmd('flickindexpercent', *args)
+    def get_flickindex_percent(self, *args, precision:str = None):
+        return self._measurement_cmd('flickindexpercent', *args, precision = precision)
         
-    def get_flickindex(self, *args):
-        return self._measurement_cmd('flickindex', *args)
+    def get_flickindex(self, *args, precision:str = None):
+        return self._measurement_cmd('flickindex', *args, precision = precision)
 
     def get_reference_levels(self, unit:str = 'percent') -> dict:
         """ Get reference settings for measurements.
