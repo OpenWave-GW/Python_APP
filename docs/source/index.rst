@@ -4,7 +4,7 @@ The MPO-2000 supports the execution of Python scripts, which is based on MicroPy
 
 Important Considerations for Using MPO's API
 --------------------------------------------
-   * Please ensure your MPO-2000 is version V1.03 or newer before starting Python programming.
+   * Please ensure your MPO-2000 is version V1.04 or newer before starting Python programming.
    * Please refer to the `MicroPython standard library documentation for version V1.19.1 <https://docs.micropython.org/en/v1.19.1/library/index.html>`_.
    * The Python GUI Library for MPO is based on LVGL version 8.3. Users who need to utilize graphics and UI design features can refer to the `LVGL documentation for version 8.3 <https://docs.lvgl.io/8.3/_downloads/39cea4971f327964c804e4e6bc96bfb4/LVGL.pdf>`_ on the LVGL official website.
    * Most MicroPython standard library modules implement a subset of the functionality of their equivalent Python 3 modules.
@@ -43,6 +43,7 @@ Usage for mpo_api
    dso_acquire
    dso_awg
    dso_basic
+   dso_bus
    dso_channel
    dso_colors
    dso_const
@@ -62,6 +63,8 @@ Usage for mpo_api
    dso_trigger
    load
    psw
+   gdm
+   asr
 
 Indices and tables
 ==================
