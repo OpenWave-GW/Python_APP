@@ -27,6 +27,7 @@ import dso_dmm
 import dso_display
 import dso_gonogo
 import dso_power_supply
+import dso_bus
 try:
     import dso_colors as color
 except:
@@ -82,6 +83,9 @@ class Dso(dso_basic.DsoBasic):
         
         self.power=dso_power_supply.PowerSupply(self)
         """Find Power Supply control in :class:`.PowerSupply`
+        """
+        self.bus=dso_bus.Bus(self)
+        """Find Bud control in :class:`.Bus`
         """
         
 
