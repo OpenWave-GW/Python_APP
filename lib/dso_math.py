@@ -433,9 +433,16 @@ def _get_waveform_batch(handle:dso_basic.DsoBasic, source:str, *args, chunk_size
             elif info == b'#':
                 head = _recv_CALL_(1)
                 head_d = int(head.decode('utf-8'))
-                length = _recv_CALL_(head_d).decode('utf-8')
+                length = b''
+                while True:
+                    length += _recv_CALL_(1)
+                    if(head_d == len(length)):
+                        break
+                length = length.decode('utf-8')
                 length = int(length) + 1 # '\n'
                 state = 'READ_DATA'
+            else:
+                header_buffer += info
         elif state == 'READ_DATA':
             # read block data waveform
             from struct import unpack
