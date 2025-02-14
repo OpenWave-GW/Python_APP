@@ -76,7 +76,7 @@ class __Gui_Init(__INIT):
         disp_drv.ver_res = self.height
         disp_drv.offset_x = 0#disp_area_offset[0]
         disp_drv.offset_y = 0#disp_area_offset[1]
-        disp_drv.antialiasing = False
+        #disp_drv.antialiasing = False
         disp_drv.rotated = 0#1: 90 rot
         disp_drv.register()
         super().__init__()
@@ -372,7 +372,7 @@ class DrawObject(__Gui_Init):
             self.A_B.set_pos(self.A_B_pos[0], self.A_B_pos[1])
             self.A_B.add_style(self.style, 0)
             self.A_B.set_style_line_width(1, lv.PART.ITEMS)
-            self.A_B.set_style_size(1, 1, lv.PART.INDICATOR)
+            self.A_B.set_style_size(1, lv.PART.INDICATOR)
             self.A_B.set_style_pad_all(0, 0)
             self.A_B.set_div_line_count(y_div, x_div)
             self.A_B.set_type(lv.chart.TYPE.SCATTER)
@@ -715,7 +715,7 @@ class DrawObject(__Gui_Init):
             Args:
                 size (int, optional): Defaults to 1.
             """
-            self.fig.set_style_size(size, size, lv.PART.INDICATOR)
+            self.fig.set_style_size(size, lv.PART.INDICATOR)
             
         def __plot_init(self):
             if hasattr(self, 'ser'):
