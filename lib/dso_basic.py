@@ -152,14 +152,22 @@ class DsoBasic():
         if (info == b'#'):
             head = self.s.recv(1)
             head_d = int(head.decode('utf-8'))
-            length = self.s.recv(head_d).decode('utf-8')
-            length = int(length) + 1
             cnt = 0
             data = b''
-            while (1):
-                data += self.s.recv(8192)
+            while True:
+                data += self.s.recv(1)
                 cnt = len(data)
-                # print("%d/%d"%(cnt,length))
+                #print("#part:%d/%d"%(cnt,head_d))
+                if(cnt == head_d):
+                    length = data.decode('utf-8')
+                    break
+            length = int(length) + 1
+            cnt = 0
+            data = bytearray()
+            while (1):
+                data.extend(self.s.recv(8192))
+                cnt = len(data)
+                #print("data:%d/%d"%(cnt,length))
                 if (cnt == length):
                     break
         else:
@@ -243,10 +251,44 @@ class DsoBasic():
         gc.collect()
         return data_out
 
+    def set_autoset_mode(self, AC_Priority:bool):
+        """Set DSO Autoset mode
+        
+        Args:
+            AC_Priority (bool): Sets the autoset mode. True:AC Priorty; False:Fit Screen.
+        """
+        cmd=''
+        if AC_Priority:
+            cmd+=':AUTORSET:MODe ACPriority\n'
+        else:
+            cmd+=':AUTORSET:MODe FITScreen\n'
+            
+        self.write(cmd)
+        
+    def set_autoset_finescale(self, Fine_Scale:bool):
+        """Set DSO Autoset fine scale
+        
+        Args:
+            Fine_Scale (bool): True will set the fine scale autoset on.
+        """
+        cmd=''
+        if Fine_Scale:
+            cmd+=':AUTORSET:FINESCale ON\n'
+        else:
+            cmd+=':AUTORSET:FINESCale OFF\n'
+            
+        self.write(cmd)
+        
     def autoset(self):
         """Set DSO Autoset
         """
-        cmd='AUTOS\n'
+        cmd=':AUTOS\n'
+        self.write(cmd)
+
+    def vertical_autoset(self):
+        """Set DSO Vertical Autoset
+        """
+        cmd=':VERTAUTOset\n'
         self.write(cmd)
 
     def stop(self):
